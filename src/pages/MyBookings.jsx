@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useBooking } from '../contexts/BookingContext'
 import { motion } from 'framer-motion'
@@ -55,7 +56,7 @@ export default function MyBookings() {
       <div className="pt-16 min-h-screen bg-light flex justify-center items-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-600 mb-2">Faça login para ver seus agendamentos</h2>
-          <a href="/profile" className="text-primary hover:underline">Entrar</a>
+          <Link to="/profile" className="text-primary hover:underline">Entrar</Link>
         </div>
       </div>
     )
@@ -132,9 +133,12 @@ export default function MyBookings() {
               <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-600 mb-2">Nenhum agendamento encontrado</h3>
               <p className="text-gray-500 mb-4">Você ainda não agendou nenhum serviço.</p>
-              <a href="/services" className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 inline-block">
+              <Link 
+                to="/services" 
+                className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 inline-block transition-colors"
+              >
                 Agendar Serviço
-              </a>
+              </Link>
             </div>
           ) : (
             <div className="space-y-4">
